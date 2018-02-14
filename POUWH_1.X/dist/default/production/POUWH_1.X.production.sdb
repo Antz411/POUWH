@@ -1,0 +1,15 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 12F1571 ]
+[d frameptr 6 ]
+"62 /opt/microchip/xc8/v1.43/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 /opt/microchip/xc8/v1.43/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"10 /home/antz/Documents/00_TSE/PROJECTS/TSE17-188_POUWH/Firmware/POUWH_1.X/main.c
+[v _main main `(v  1 e 1 0 ]
+[v _main main `(v  1 e 1 0 ]
+{
+"12
+} 0
