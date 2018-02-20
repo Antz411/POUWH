@@ -50,7 +50,11 @@ void main(void)
     while(1)
     {
         a = ADC_Read(0);            //Read Analog Channel 0
-        blink_LED();
+        
+        if (a >= 0x0500)
+        {
+			blink_LED();
+		}
         //blink_Power();
     }
     return;
@@ -77,11 +81,10 @@ void ADC_Init(void)
 /* Read the Temperature Input value */
 u16 ADC_Read(u8 channel)
 {
-    if(channel > 7)              // Channel range is 0 ~ 7
-        return 0;
-
-    ADCON0 &= 0xC5;              // Clearing channel selection bits
-    ADCON0 |= channel<<3;        // Setting channel selection bits
+    //ADCON0 &= 0x01;            // Clearing channel selection bits [1100 0101]
+    //ADCON0 |= channel<<2;      // Setting channel selection bits  [|= 10<<3 = 1101 0101]
+    ADCON0 = 0x09;               // 0000 1001   -> ADC Enable + AN2 select
+    
     __delay_ms(2);               // Acquisition time to charge hold capacitor
     
     GO_nDONE = 1;                // Initializes A/D conversion
