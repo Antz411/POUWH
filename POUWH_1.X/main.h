@@ -1,46 +1,62 @@
 /* 
- * File:        main.h
- * Author:      A.Smith
- * Comments:    
+ * File:        MAIN.H
+ * Author:      A.SMITH
+ * Comments:    --
  */
- #ifndef MAIN_H
+
+#ifndef MAIN_H
 #define	MAIN_H
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
-    
+
+/********************************************************************************/
+/*     TIMING CONSTANT TIMING CONSTANT TIMING CONSTANT TIMING CONSTANT          */
+/********************************************************************************/
     #ifndef _XTAL_FREQ
     #define _XTAL_FREQ    4000000     // 8Mhz INTOSC internal osc
     #define __delay_us(x) _delay((unsigned long)((x)*(_XTAL_FREQ/4000000.0)))
     #endif
-    
-    #define LED0                     RA0                  // OUTPUT
-    #define LED0_ON                  LED0             = 1
-    #define LED0_OFF                 LED0             = 0
-    
-    #define LED1                     RA1                  // OUTPUT
-    #define LED1_ON                  LED1             = 1
-    #define LED1_OFF                 LED1             = 0
-    
-    #define LED2                     RA2                  // OUTPUT
-    #define LED2_ON                  LED2             = 1
-    #define LED2_OFF                 LED2             = 0
 
-    #define LED4                     RA4                  // OUTPUT
-    #define LED4_ON                  LED4             = 1
-    #define LED4_OFF                 LED4             = 0
-
-    #define STATUS_LED              RA3                  // OUTPUT
-    #define STATUS_LED_ON           STATUS_LED      = 1
-    #define STATUS_LED_OFF          STATUS_LED      = 0
+/********************************************************************************/
+/*        PIN DEFINITIONS PIN DEFINITIONS PIN DEFINITIONS PIN DEFINITIONS       */
+/********************************************************************************/
+    #define Tmp_Var             RA1     // INPUT 
+    #define Tmp_In              RA4     // INPUT
+    #define STATUS              RA2     // OUTPUT
+    #define POWER               RA5     // OUTPUT
     
-    #define TEMP_OUT                RA5                  // OUTPUT
-    #define TEMP_OUT_ON             TEMP_OUT        = 1
-    #define TEMP_OUT_OFF            TEMP_OUT        = 0
+    #define POWER_ON            POWER   = 1
+    #define POWER_OFF           POWER   = 0
+    #define STATUS_ON           STATUS  = 1
+    #define STATUS_OFF          STATUS  = 0
+    
+/********************************************************************************/
+/*     PUBLIC CONSTANTS PUBLIC CONSTANTS PUBLIC CONSTANTS PUBLIC CONSTANTS      */
+/********************************************************************************/
+
+    typedef unsigned char           u8;         // 0 -> 255
+    typedef signed char             s8;         // -128 -> +128
+    typedef unsigned short          u4;         // 0 -> 65 535
+    typedef unsigned int            u16;		// 0 -> 4 294 967 295
+    typedef signed int              s16;		// -half -> +half
+    typedef unsigned long           u32;		// 0 -> VERY_BIG
+    typedef signed long             s32;		// -BIG -> +BIG
+    typedef u16                     FLADDR;     // Used for flash W/R
+
+    #define CLEAR                   0x00
+    #define SET                     0x01
+    #define ON                      0x01
+    #define OFF                     0x00
+    #define TRUE                    0x01
+    #define FALSE                   0x00
+    #define MATCH                   0x00
+    
     
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */
 
 #endif	/* XC_HEADER_TEMPLATE_H */
+
