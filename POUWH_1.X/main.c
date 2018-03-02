@@ -2,6 +2,10 @@
  * File:    main.c
  * Author:  A.Smith
  * Created: 14-02-2018, 12:17 PM
+ * 
+ * NOTES:
+ * ADC3 = RA4 - Temperature Sensor
+ * ADC2 = RA2 - Temperature Control
  */
 // CONFIG1
 #pragma config FOSC = INTOSC    // (INTOSC oscillator; I/O function on CLKIN pin)
@@ -29,36 +33,50 @@
 ******************************/
 void initializers(void);
 void ADC_Init(void);
-u16 ADC_Read(unsigned char channel);
-void blink_LED(void);
-void blink_Power(void);
+u16 ADC2_Read(void);
+u16 ADC3_Read(void);
+void blink_LED_S(void);
+void blink_LED_F(void);
+void Heat_Up(void);
 void Delay_Sec(unsigned char sec);
 
 /*****************************
             GLOBALS
 ******************************/
-u16 a = 0;                          // Temperature value
+u16 adc = 0;                            // Temperature value
+u16 ADCH = 0x0000;                      // ADC High value
+u16 ADCL = 0x0000;                      // ADC Low value
 
 /*****************************
             MAIN
 ******************************/
 void main(void) 
 {
+    //unsigned char once = 0x0050;
     initializers();
     ADC_Init();
-    
-    while(1)
-    {
-        a = ADC_Read(0);            //Read Analog Channel 0
         
-        if (a >= 0x0500)
-        {
-			blink_LED();
-		}
-        //blink_Power();
+    while(1)
+    {        
+        adc = ADC3_Read();                          // Read Analog Channel 3 [RA4]
+            
+        if(adc <= 100){//if(adc >= 0x3800){
+            //adc = ADC3_Read();                    // Read Analog Channel 3 [RA4]
+            //Heat_Up();                              // Heat the elements for 25 seconds
+            blink_LED_F();                          // blink fast
+        }
+        else{
+            //Heat_Up();                            // start heating for 25 seconds
+            blink_LED_S();                          // blink slow
+        }
+        
     }
     return;
 }
+
+/*****************************
+         FUNCTIONS
+******************************/
 
 /* Initialize */
 void initializers(void)
@@ -74,22 +92,44 @@ void initializers(void)
 /* Initialize the ADC */
 void ADC_Init(void)
 {
-    ADCON0 = 0x81;               //Turn ON ADC and Clock Selection
-    ADCON1 = 0x00;               //All pins as Analog Input and setting Reference Voltages
+    /* Using ADC Channel 2 &  */
+    ADCON0 = 0x81;               // Turn ON ADC (unnecessary? - enabled at each read)
+    /* Vrpos = Vdd
+     * Fosc/2
+     * Right Justified (6 MSB = 0) - Read as [xxxx xx11 1111 1111 ]*/
+    ADCON1 = 0x80;               // Reference Voltages, frequency & bit justification
 }
 
-/* Read the Temperature Input value */
-u16 ADC_Read(u8 channel)
+/* Read the Temperature Control value [RA4] */
+u16 ADC3_Read(void)
 {
-    //ADCON0 &= 0x01;            // Clearing channel selection bits [1100 0101]
-    //ADCON0 |= channel<<2;      // Setting channel selection bits  [|= 10<<3 = 1101 0101]
+    ADCON0 = 0x0B;               // 0000 1101   -> ADC Enable + AN3 select
+    
+    __delay_ms(2);               // Acquisition time to charge hold capacitor
+    
+    GO_nDONE = 1;                // Initializes A/D conversion
+    while(GO_nDONE);             // Waiting for conversion to complete
+    //return ((ADCH<<8)+ADRESL);   // Top 6 bits of ADRESH are ignored [Pg 122]
+    
+    /* Right Justified */
+    ADCH = ADRESH;
+    ADCL = ADRESL;
+    ADCH = ADRESH && 0x03;          // AND 0000 0011
+    ADCH = (ADCH<<8);               // shift to top 8 bits
+    ADCH = ADCH + ADCL;             // Add results
+    return ADCH;                    // Return result
+}
+
+/* Read the Temperature Sensor value [RA2] */
+u16 ADC2_Read(void)
+{
     ADCON0 = 0x09;               // 0000 1001   -> ADC Enable + AN2 select
     
     __delay_ms(2);               // Acquisition time to charge hold capacitor
     
     GO_nDONE = 1;                // Initializes A/D conversion
     while(GO_nDONE);             // Waiting for conversion to complete
-    return ((ADRESH<<8)+ADRESL); // Return result
+    return ((ADCH<<8)+ADRESL);
 }
 
 /* Delay for X seconds */
@@ -105,19 +145,27 @@ void Delay_Sec(u8 sec)
 }
 
 /* Switch Power On/Off */
-void blink_Power(void)
+void Heat_Up(void)
 {
     POWER_ON;
-    Delay_Sec(5);       //__delay_ms(250);
+    Delay_Sec(25);          //__delay_ms(250);
     POWER_OFF;
-    Delay_Sec(5);       //__delay_ms(250);
+    //Delay_Sec(10);        //__delay_ms(250);
 }
 
 /* Status LED */
-void blink_LED(void)
+void blink_LED_F(void)
 {
     STATUS_ON;
-    __delay_ms(250);
+    __delay_ms(100);
     STATUS_OFF;
-    __delay_ms(250);
+    __delay_ms(100);
+}
+/* Status LED */
+void blink_LED_S(void)
+{
+    STATUS_ON;
+    __delay_ms(500);
+    STATUS_OFF;
+    __delay_ms(500);
 }
