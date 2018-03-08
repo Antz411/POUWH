@@ -8,3 +8,5 @@ Version 1 	- GPIO test program
 		- Power control working
 		
 Version 2	- ADC Temperature sensor test
+
+Version 3	- New ADC
