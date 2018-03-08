@@ -9,4 +9,5 @@ Version 1 	- GPIO test program
 		
 Version 2	- ADC Temperature sensor test
 
-Version 3	- New ADC
+Version 3	- Second ADC added for temperature control potentiometer 
+		- ADC output values are still incorrect??
