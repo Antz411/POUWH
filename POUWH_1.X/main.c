@@ -59,7 +59,9 @@ void main(void)
     while(1)
     {        
         adc = ADC3_Read();                          // Read Analog Channel 3 [RA4]
-            
+        /***********************************/
+        /* To find a temperature threshold */
+        /***********************************/
         if(adc <= 100){//if(adc >= 0x3800){
             //adc = ADC3_Read();                    // Read Analog Channel 3 [RA4]
             //Heat_Up();                              // Heat the elements for 25 seconds
@@ -150,7 +152,7 @@ void Heat_Up(void)
     POWER_ON;
     Delay_Sec(25);          //__delay_ms(250);
     POWER_OFF;
-    //Delay_Sec(10);        //__delay_ms(250);
+    Delay_Sec(10);        //__delay_ms(250);
 }
 
 /* Status LED */
@@ -169,3 +171,4 @@ void blink_LED_S(void)
     STATUS_OFF;
     __delay_ms(500);
 }
+
