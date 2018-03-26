@@ -11,5 +11,3 @@ Version 2	- ADC Temperature sensor test
 
 Version 3	- Second ADC added for temperature control potentiometer 
 		- ADC output values are still incorrect??
-
-version 4	- ADC Channel 1 (RA1) is working (RA4 not)
