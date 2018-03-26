@@ -1,0 +1,79 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 12F1571 ]
+[d frameptr 6 ]
+"62 /opt/microchip/xc8/v1.43/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 /opt/microchip/xc8/v1.43/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"53 /home/antz/GIT/POUWH/POUWH_1.X/main.c
+[v _main main `(v  1 e 1 0 ]
+"83
+[v _initializers initializers `(v  1 e 1 0 ]
+"95
+[v _ADC_Init ADC_Init `(v  1 e 1 0 ]
+"106
+[v _ADC1_Read ADC1_Read `(ui  1 e 2 0 ]
+"144
+[v _Delay_Sec Delay_Sec `(v  1 e 1 0 ]
+"165
+[v _blink_LED_F blink_LED_F `(v  1 e 1 0 ]
+"173
+[v _blink_LED_S blink_LED_S `(v  1 e 1 0 ]
+"427 /opt/microchip/xc8/v1.43/include/pic12f1571.h
+[v _PORTA PORTA `VEuc  1 e 1 @12 ]
+"900
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"1308
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"1443
+[v _ADRESL ADRESL `VEuc  1 e 1 @155 ]
+"1463
+[v _ADRESH ADRESH `VEuc  1 e 1 @156 ]
+"1483
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
+"1572
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
+"8147
+[v _GO_nDONE GO_nDONE `VEb  1 e 0 @1257 ]
+"8961
+[v _RA2 RA2 `VEb  1 e 0 @98 ]
+"8967
+[v _RA5 RA5 `VEb  1 e 0 @101 ]
+"46 /home/antz/GIT/POUWH/POUWH_1.X/main.c
+[v _adc adc `ui  1 e 2 0 ]
+"47
+[v _ADCH ADCH `ui  1 e 2 0 ]
+"48
+[v _ADCL ADCL `ui  1 e 2 0 ]
+"53
+[v _main main `(v  1 e 1 0 ]
+{
+"77
+} 0
+"83
+[v _initializers initializers `(v  1 e 1 0 ]
+{
+"92
+} 0
+"173
+[v _blink_LED_S blink_LED_S `(v  1 e 1 0 ]
+{
+"179
+} 0
+"165
+[v _blink_LED_F blink_LED_F `(v  1 e 1 0 ]
+{
+"171
+} 0
+"95
+[v _ADC_Init ADC_Init `(v  1 e 1 0 ]
+{
+"103
+} 0
+"106
+[v _ADC1_Read ADC1_Read `(ui  1 e 2 0 ]
+{
+"122
+} 0
