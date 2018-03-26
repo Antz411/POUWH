@@ -11,21 +11,21 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcXGxfzMK.obj
-reset_vec CODE 0 0 0 1 2
-end_init CODE 0 1 1 1 2
-config CONFIG 0 8007 8007 2 2
 $dist/default/production/POUWH_1.X.production.obj
 cinit CODE 0 3FA 3FA 6 2
-text1 CODE 0 376 376 9 2
+text1 CODE 0 373 373 C 2
 text2 CODE 0 3A4 3A4 1B 2
 text3 CODE 0 391 391 13 2
-text4 CODE 0 372 372 4 2
+text4 CODE 0 36F 36F 4 2
 text5 CODE 0 3BF 3BF 3B 2
 nvCOMMON COMMON 1 79 79 2 1
 maintext CODE 0 37F 37F 12 2
 cstackCOMMON COMMON 1 70 70 5 1
 bssCOMMON COMMON 1 75 75 4 1
+$/tmp/xcX36rlHz.obj
+reset_vec CODE 0 0 0 1 2
+end_init CODE 0 1 1 1 2
+config CONFIG 0 8007 8007 2 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -36,8 +36,8 @@ RAM 20-6F 1
 RAM A0-BF 1
 BANK0 20-6F 1
 BANK1 A0-BF 1
-CONST 2-371 2
-ENTRY 2-371 2
+CONST 2-36E 2
+ENTRY 2-36E 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -62,7 +62,7 @@ SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
 STACK 2000-206F 1
-CODE 2-371 2
+CODE 2-36E 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-16F 1
@@ -75,8 +75,8 @@ SFR8 400-46F 1
 SFR9 480-4EF 1
 BIGRAM 2000-206F 1
 COMMON 7B-7D 1
-STRCODE 2-371 2
-STRING 2-371 2
+STRCODE 2-36E 2
+STRING 2-36E 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -91,46 +91,47 @@ STRING 2-371 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/POUWH_1.X.production.obj
-3FA cinit CODE >415:/tmp/xcXTGZVvZ
-3FA cinit CODE >418:/tmp/xcXTGZVvZ
-3FA cinit CODE >433:/tmp/xcXTGZVvZ
-3FB cinit CODE >434:/tmp/xcXTGZVvZ
-3FC cinit CODE >435:/tmp/xcXTGZVvZ
-3FD cinit CODE >436:/tmp/xcXTGZVvZ
-3FE cinit CODE >442:/tmp/xcXTGZVvZ
-3FE cinit CODE >444:/tmp/xcXTGZVvZ
-3FF cinit CODE >445:/tmp/xcXTGZVvZ
-3BF text5 CODE >106:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3FA cinit CODE >417:/tmp/xcXRPpRmz
+3FA cinit CODE >420:/tmp/xcXRPpRmz
+3FA cinit CODE >435:/tmp/xcXRPpRmz
+3FB cinit CODE >436:/tmp/xcXRPpRmz
+3FC cinit CODE >437:/tmp/xcXRPpRmz
+3FD cinit CODE >438:/tmp/xcXRPpRmz
+3FE cinit CODE >444:/tmp/xcXRPpRmz
+3FE cinit CODE >446:/tmp/xcXRPpRmz
+3FF cinit CODE >447:/tmp/xcXRPpRmz
 3BF text5 CODE >108:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3C2 text5 CODE >109:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3C9 text5 CODE >111:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3CB text5 CODE >112:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3CD text5 CODE >116:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3D4 text5 CODE >117:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3DB text5 CODE >118:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3E8 text5 CODE >119:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3EF text5 CODE >120:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3F5 text5 CODE >121:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-372 text4 CODE >95:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-372 text4 CODE >102:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-375 text4 CODE >103:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-391 text3 CODE >165:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3BF text5 CODE >110:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3C2 text5 CODE >111:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3C9 text5 CODE >113:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3CB text5 CODE >114:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3CD text5 CODE >118:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3D4 text5 CODE >119:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3DB text5 CODE >120:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3E8 text5 CODE >121:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3EF text5 CODE >122:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3F5 text5 CODE >123:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+36F text4 CODE >97:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+36F text4 CODE >104:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+372 text4 CODE >105:/home/antz/GIT/POUWH/POUWH_1.X/main.c
 391 text3 CODE >167:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-393 text3 CODE >168:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-39A text3 CODE >169:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-39C text3 CODE >170:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3A3 text3 CODE >171:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3A4 text2 CODE >173:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+391 text3 CODE >169:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+393 text3 CODE >170:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+39A text3 CODE >171:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+39C text3 CODE >172:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3A3 text3 CODE >173:/home/antz/GIT/POUWH/POUWH_1.X/main.c
 3A4 text2 CODE >175:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3A6 text2 CODE >176:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3B1 text2 CODE >177:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3B3 text2 CODE >178:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-3BE text2 CODE >179:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-376 text1 CODE >83:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-376 text1 CODE >87:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-379 text1 CODE >89:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-37B text1 CODE >91:/home/antz/GIT/POUWH/POUWH_1.X/main.c
-37E text1 CODE >92:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3A4 text2 CODE >177:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3A6 text2 CODE >178:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3B1 text2 CODE >179:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3B3 text2 CODE >180:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+3BE text2 CODE >181:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+373 text1 CODE >83:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+373 text1 CODE >87:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+376 text1 CODE >89:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+379 text1 CODE >91:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+37B text1 CODE >93:/home/antz/GIT/POUWH/POUWH_1.X/main.c
+37E text1 CODE >94:/home/antz/GIT/POUWH/POUWH_1.X/main.c
 37F maintext CODE >53:/home/antz/GIT/POUWH/POUWH_1.X/main.c
 37F maintext CODE >56:/home/antz/GIT/POUWH/POUWH_1.X/main.c
 380 maintext CODE >57:/home/antz/GIT/POUWH/POUWH_1.X/main.c
@@ -165,22 +166,22 @@ __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 __Hstrings 0 0 ABS 0 strings -
 _ADCH 77 0 COMMON 1 bssCOMMON dist/default/production/POUWH_1.X.production.obj
 _ADCL 75 0 COMMON 1 bssCOMMON dist/default/production/POUWH_1.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/xcXGxfzMK.obj
+___sp 0 0 STACK 2 stack /tmp/xcX36rlHz.obj
 _main 6FE 0 CODE 0 maintext dist/default/production/POUWH_1.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
-start 2 0 CODE 0 init /tmp/xcXGxfzMK.obj
+start 2 0 CODE 0 init /tmp/xcX36rlHz.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
 __size_of_ADC_Init 0 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 __LnvCOMMON 0 0 ABS 0 nvCOMMON -
-intlevel0 0 0 ENTRY 0 functab /tmp/xcXGxfzMK.obj
-intlevel1 0 0 ENTRY 0 functab /tmp/xcXGxfzMK.obj
-intlevel2 0 0 ENTRY 0 functab /tmp/xcXGxfzMK.obj
-intlevel3 0 0 ENTRY 0 functab /tmp/xcXGxfzMK.obj
-intlevel4 0 0 ENTRY 0 functab /tmp/xcXGxfzMK.obj
-intlevel5 0 0 ENTRY 0 functab /tmp/xcXGxfzMK.obj
+intlevel0 0 0 ENTRY 0 functab /tmp/xcX36rlHz.obj
+intlevel1 0 0 ENTRY 0 functab /tmp/xcX36rlHz.obj
+intlevel2 0 0 ENTRY 0 functab /tmp/xcX36rlHz.obj
+intlevel3 0 0 ENTRY 0 functab /tmp/xcX36rlHz.obj
+intlevel4 0 0 ENTRY 0 functab /tmp/xcX36rlHz.obj
+intlevel5 0 0 ENTRY 0 functab /tmp/xcX36rlHz.obj
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -190,17 +191,18 @@ _ADCON0 9D 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 _ADCON1 9E 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 _ADRESH 9C 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 _ADRESL 9B 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
+_ANSELA 18C 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
-_ADC_Init 6E4 0 CODE 0 text4 dist/default/production/POUWH_1.X.production.obj
-__end_of_ADC_Init 6EC 0 CODE 0 text4 dist/default/production/POUWH_1.X.production.obj
+_ADC_Init 6DE 0 CODE 0 text4 dist/default/production/POUWH_1.X.production.obj
+__end_of_ADC_Init 6E6 0 CODE 0 text4 dist/default/production/POUWH_1.X.production.obj
 __size_of_blink_LED_F 0 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 __size_of_blink_LED_S 0 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 __HnvCOMMON 0 0 ABS 0 nvCOMMON -
 start_initialization 7F4 0 CODE 0 cinit dist/default/production/POUWH_1.X.production.obj
 _OSCCON 99 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 _GO_nDONE 4E9 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
-_ADC1_Read$66 74 0 COMMON 1 cstackCOMMON dist/default/production/POUWH_1.X.production.obj
-___int_sp 0 0 STACK 2 stack /tmp/xcXGxfzMK.obj
+_ADC1_Read$67 74 0 COMMON 1 cstackCOMMON dist/default/production/POUWH_1.X.production.obj
+___int_sp 0 0 STACK 2 stack /tmp/xcX36rlHz.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 BANK2 1 bank2 -
@@ -335,7 +337,7 @@ __S2 0 0 ABS 0 - -
 _adc 79 0 COMMON 1 nvCOMMON dist/default/production/POUWH_1.X.production.obj
 __pnvCOMMON 79 0 COMMON 1 nvCOMMON dist/default/production/POUWH_1.X.production.obj
 __Lintentry 2 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcXGxfzMK.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcX36rlHz.obj
 __end_of_ADC1_Read 7F4 0 CODE 0 text5 dist/default/production/POUWH_1.X.production.obj
 __size_of_ADC1_Read 0 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 __Lbank10 0 0 BANK10 1 bank10 -
@@ -370,8 +372,8 @@ __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 _ADC1_Read 77E 0 CODE 0 text5 dist/default/production/POUWH_1.X.production.obj
-stackhi 206F 0 ABS 0 - /tmp/xcXGxfzMK.obj
-stacklo 2000 0 ABS 0 - /tmp/xcXGxfzMK.obj
+stackhi 206F 0 ABS 0 - /tmp/xcX36rlHz.obj
+stacklo 2000 0 ABS 0 - /tmp/xcX36rlHz.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
@@ -386,12 +388,12 @@ __Hintentry 2 0 CODE 0 intentry -
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 2 0 CODE 0 reset_vec -
-__ptext1 6EC 0 CODE 0 text1 dist/default/production/POUWH_1.X.production.obj
+__ptext1 6E6 0 CODE 0 text1 dist/default/production/POUWH_1.X.production.obj
 __ptext2 748 0 CODE 0 text2 dist/default/production/POUWH_1.X.production.obj
 __ptext3 722 0 CODE 0 text3 dist/default/production/POUWH_1.X.production.obj
-__ptext4 6E4 0 CODE 0 text4 dist/default/production/POUWH_1.X.production.obj
+__ptext4 6DE 0 CODE 0 text4 dist/default/production/POUWH_1.X.production.obj
 __ptext5 77E 0 CODE 0 text5 dist/default/production/POUWH_1.X.production.obj
-_initializers 6EC 0 CODE 0 text1 dist/default/production/POUWH_1.X.production.obj
+_initializers 6E6 0 CODE 0 text1 dist/default/production/POUWH_1.X.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -438,10 +440,10 @@ __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production/POUWH_1.X.production.obj
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 3FA 7F4 6 2
-text1 0 376 6EC 9 2
+text1 0 373 6E6 C 2
 text2 0 3A4 748 1B 2
 text3 0 391 722 13 2
-text4 0 372 6E4 4 2
+text4 0 36F 6DE 4 2
 text5 0 3BF 77E 3B 2
 maintext 0 37F 6FE 12 2
 cstackCOMMON 1 70 70 B 1

@@ -4409,6 +4409,8 @@ void initializers(void)
 
 TRISA = 0x1B;
 
+ANSELA = 0x12;
+
 PORTA = 0X00;
 
 OSCCON = 0x6A;
@@ -4418,7 +4420,7 @@ OSCCON = 0x6A;
 void ADC_Init(void)
 {
 
-# 102
+# 104
 ADCON1 = 0x80;
 }
 

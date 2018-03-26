@@ -12,6 +12,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _blink_LED_S `(v ~T0 @X0 0 ef ]
 "900 /opt/microchip/xc8/v1.43/include/pic12f1571.h
 [v _TRISA `Vuc ~T0 @X0 0 e@140 ]
+"2194
+[v _ANSELA `Vuc ~T0 @X0 0 e@396 ]
 "427
 [v _PORTA `Vuc ~T0 @X0 0 e@12 ]
 "1308
@@ -3388,250 +3390,253 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 87: TRISA = 0x1B;
 "87
 [e = _TRISA -> -> 27 `i `uc ]
-[; ;main.c: 89: PORTA = 0X00;
+[; ;main.c: 89: ANSELA = 0x12;
 "89
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;main.c: 91: OSCCON = 0x6A;
+[e = _ANSELA -> -> 18 `i `uc ]
+[; ;main.c: 91: PORTA = 0X00;
 "91
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;main.c: 93: OSCCON = 0x6A;
+"93
 [e = _OSCCON -> -> 106 `i `uc ]
-[; ;main.c: 92: }
-"92
+[; ;main.c: 94: }
+"94
 [e :UE 426 ]
 }
-"95
+"97
 [v _ADC_Init `(v ~T0 @X0 1 ef ]
-"96
+"98
 {
-[; ;main.c: 95: void ADC_Init(void)
-[; ;main.c: 96: {
+[; ;main.c: 97: void ADC_Init(void)
+[; ;main.c: 98: {
 [e :U _ADC_Init ]
 [f ]
-[; ;main.c: 102: ADCON1 = 0x80;
-"102
+[; ;main.c: 104: ADCON1 = 0x80;
+"104
 [e = _ADCON1 -> -> 128 `i `uc ]
-[; ;main.c: 103: }
-"103
+[; ;main.c: 105: }
+"105
 [e :UE 427 ]
 }
-"106
+"108
 [v _ADC1_Read `(ui ~T0 @X0 1 ef ]
-"107
+"109
 {
-[; ;main.c: 106: u16 ADC1_Read(void)
-[; ;main.c: 107: {
+[; ;main.c: 108: u16 ADC1_Read(void)
+[; ;main.c: 109: {
 [e :U _ADC1_Read ]
 [f ]
-[; ;main.c: 108: ADCON0 = 0x05;
-"108
+[; ;main.c: 110: ADCON0 = 0x05;
+"110
 [e = _ADCON0 -> -> 5 `i `uc ]
-[; ;main.c: 109: _delay((unsigned long)((2)*(4000000/4000.0)));
-"109
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 111: GO_nDONE = 1;
+[; ;main.c: 111: _delay((unsigned long)((2)*(4000000/4000.0)));
 "111
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main.c: 113: GO_nDONE = 1;
+"113
 [e = _GO_nDONE -> -> 1 `i `b ]
-[; ;main.c: 112: while(GO_nDONE);
-"112
+[; ;main.c: 114: while(GO_nDONE);
+"114
 [e $U 429  ]
 [e :U 430 ]
 [e :U 429 ]
 [e $ _GO_nDONE 430  ]
 [e :U 431 ]
-[; ;main.c: 116: ADCH = ADRESH;
-"116
-[e = _ADCH -> _ADRESH `ui ]
-[; ;main.c: 117: ADCL = ADRESL;
-"117
-[e = _ADCL -> _ADRESL `ui ]
-[; ;main.c: 118: ADCH = ADRESH && 0x03;
+[; ;main.c: 118: ADCH = ADRESH;
 "118
-[e = _ADCH -> -> && != -> _ADRESH `i -> -> -> 0 `i `Vuc `i != -> 3 `i -> 0 `i `i `ui ]
-[; ;main.c: 119: ADCH = (ADCH<<8);
+[e = _ADCH -> _ADRESH `ui ]
+[; ;main.c: 119: ADCL = ADRESL;
 "119
-[e = _ADCH << _ADCH -> 8 `i ]
-[; ;main.c: 120: ADCH = ADCH + ADCL;
+[e = _ADCL -> _ADRESL `ui ]
+[; ;main.c: 120: ADCH = ADRESH && 0x03;
 "120
-[e = _ADCH + _ADCH _ADCL ]
-[; ;main.c: 121: return ADCH;
+[e = _ADCH -> -> && != -> _ADRESH `i -> -> -> 0 `i `Vuc `i != -> 3 `i -> 0 `i `i `ui ]
+[; ;main.c: 121: ADCH = (ADCH<<8);
 "121
+[e = _ADCH << _ADCH -> 8 `i ]
+[; ;main.c: 122: ADCH = ADCH + ADCL;
+"122
+[e = _ADCH + _ADCH _ADCL ]
+[; ;main.c: 123: return ADCH;
+"123
 [e ) _ADCH ]
 [e $UE 428  ]
-[; ;main.c: 122: }
-"122
+[; ;main.c: 124: }
+"124
 [e :UE 428 ]
 }
-"125
+"127
 [v _ADC3_Read `(ui ~T0 @X0 1 ef ]
-"126
+"128
 {
-[; ;main.c: 125: u16 ADC3_Read(void)
-[; ;main.c: 126: {
+[; ;main.c: 127: u16 ADC3_Read(void)
+[; ;main.c: 128: {
 [e :U _ADC3_Read ]
 [f ]
-[; ;main.c: 127: ADCON0 = 0x0B;
-"127
+[; ;main.c: 129: ADCON0 = 0x0B;
+"129
 [e = _ADCON0 -> -> 11 `i `uc ]
-[; ;main.c: 128: _delay((unsigned long)((2)*(4000000/4000.0)));
-"128
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 130: GO_nDONE = 1;
+[; ;main.c: 130: _delay((unsigned long)((2)*(4000000/4000.0)));
 "130
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main.c: 132: GO_nDONE = 1;
+"132
 [e = _GO_nDONE -> -> 1 `i `b ]
-[; ;main.c: 131: while(GO_nDONE);
-"131
+[; ;main.c: 133: while(GO_nDONE);
+"133
 [e $U 433  ]
 [e :U 434 ]
 [e :U 433 ]
 [e $ _GO_nDONE 434  ]
 [e :U 435 ]
-[; ;main.c: 135: ADCH = ADRESH;
-"135
-[e = _ADCH -> _ADRESH `ui ]
-[; ;main.c: 136: ADCL = ADRESL;
-"136
-[e = _ADCL -> _ADRESL `ui ]
-[; ;main.c: 137: ADCH = ADRESH && 0x03;
+[; ;main.c: 137: ADCH = ADRESH;
 "137
-[e = _ADCH -> -> && != -> _ADRESH `i -> -> -> 0 `i `Vuc `i != -> 3 `i -> 0 `i `i `ui ]
-[; ;main.c: 138: ADCH = (ADCH<<8);
+[e = _ADCH -> _ADRESH `ui ]
+[; ;main.c: 138: ADCL = ADRESL;
 "138
-[e = _ADCH << _ADCH -> 8 `i ]
-[; ;main.c: 139: ADCH = ADCH + ADCL;
+[e = _ADCL -> _ADRESL `ui ]
+[; ;main.c: 139: ADCH = ADRESH && 0x03;
 "139
-[e = _ADCH + _ADCH _ADCL ]
-[; ;main.c: 140: return ADCH;
+[e = _ADCH -> -> && != -> _ADRESH `i -> -> -> 0 `i `Vuc `i != -> 3 `i -> 0 `i `i `ui ]
+[; ;main.c: 140: ADCH = (ADCH<<8);
 "140
+[e = _ADCH << _ADCH -> 8 `i ]
+[; ;main.c: 141: ADCH = ADCH + ADCL;
+"141
+[e = _ADCH + _ADCH _ADCL ]
+[; ;main.c: 142: return ADCH;
+"142
 [e ) _ADCH ]
 [e $UE 432  ]
-[; ;main.c: 141: }
-"141
+[; ;main.c: 143: }
+"143
 [e :UE 432 ]
 }
-"144
-[v _Delay_Sec `(v ~T0 @X0 1 ef1`uc ]
-"145
-{
-[; ;main.c: 144: void Delay_Sec(u8 sec)
-[; ;main.c: 145: {
-[e :U _Delay_Sec ]
-"144
-[v _sec `uc ~T0 @X0 1 r1 ]
-"145
-[f ]
 "146
+[v _Delay_Sec `(v ~T0 @X0 1 ef1`uc ]
+"147
+{
+[; ;main.c: 146: void Delay_Sec(u8 sec)
+[; ;main.c: 147: {
+[e :U _Delay_Sec ]
+"146
+[v _sec `uc ~T0 @X0 1 r1 ]
+"147
+[f ]
+"148
 [v _x `uc ~T0 @X0 1 a ]
 [v _y `uc ~T0 @X0 1 a ]
-[; ;main.c: 146: unsigned char x, y;
-[; ;main.c: 148: for(y = 0; y < sec; y++){
-"148
+[; ;main.c: 148: unsigned char x, y;
+[; ;main.c: 150: for(y = 0; y < sec; y++){
+"150
 {
 [e = _y -> -> 0 `i `uc ]
 [e $U 440  ]
 [e :U 437 ]
 {
-[; ;main.c: 149: for(x = 0; x < 100; x++){
-"149
+[; ;main.c: 151: for(x = 0; x < 100; x++){
+"151
 {
 [e = _x -> -> 0 `i `uc ]
 [e $ < -> _x `i -> 100 `i 441  ]
 [e $U 442  ]
 [e :U 441 ]
 {
-[; ;main.c: 150: _delay((unsigned long)((10)*(4000000/4000.0)));
-"150
+[; ;main.c: 152: _delay((unsigned long)((10)*(4000000/4000.0)));
+"152
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"151
+"153
 }
-"149
+"151
 [e ++ _x -> -> 1 `i `uc ]
 [e $ < -> _x `i -> 100 `i 441  ]
 [e :U 442 ]
-"151
+"153
 }
-"152
+"154
 }
-"148
+"150
 [e ++ _y -> -> 1 `i `uc ]
 [e :U 440 ]
 [e $ < -> _y `i -> _sec `i 437  ]
 [e :U 438 ]
-"152
+"154
 }
-[; ;main.c: 151: }
-[; ;main.c: 152: }
 [; ;main.c: 153: }
-"153
+[; ;main.c: 154: }
+[; ;main.c: 155: }
+"155
 [e :UE 436 ]
 }
-"156
+"158
 [v _Heat_Up `(v ~T0 @X0 1 ef ]
-"157
+"159
 {
-[; ;main.c: 156: void Heat_Up(void)
-[; ;main.c: 157: {
+[; ;main.c: 158: void Heat_Up(void)
+[; ;main.c: 159: {
 [e :U _Heat_Up ]
 [f ]
-[; ;main.c: 158: RA5 = 1;
-"158
-[e = _RA5 -> -> 1 `i `b ]
-[; ;main.c: 159: Delay_Sec(25);
-"159
-[e ( _Delay_Sec (1 -> -> 25 `i `uc ]
-[; ;main.c: 160: RA5 = 0;
+[; ;main.c: 160: RA5 = 1;
 "160
-[e = _RA5 -> -> 0 `i `b ]
-[; ;main.c: 161: Delay_Sec(10);
+[e = _RA5 -> -> 1 `i `b ]
+[; ;main.c: 161: Delay_Sec(25);
 "161
-[e ( _Delay_Sec (1 -> -> 10 `i `uc ]
-[; ;main.c: 162: }
+[e ( _Delay_Sec (1 -> -> 25 `i `uc ]
+[; ;main.c: 162: RA5 = 0;
 "162
+[e = _RA5 -> -> 0 `i `b ]
+[; ;main.c: 163: Delay_Sec(10);
+"163
+[e ( _Delay_Sec (1 -> -> 10 `i `uc ]
+[; ;main.c: 164: }
+"164
 [e :UE 444 ]
 }
-"165
+"167
 [v _blink_LED_F `(v ~T0 @X0 1 ef ]
-"166
+"168
 {
-[; ;main.c: 165: void blink_LED_F(void)
-[; ;main.c: 166: {
+[; ;main.c: 167: void blink_LED_F(void)
+[; ;main.c: 168: {
 [e :U _blink_LED_F ]
 [f ]
-[; ;main.c: 167: RA2 = 1;
-"167
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 168: _delay((unsigned long)((100)*(4000000/4000.0)));
-"168
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 169: RA2 = 0;
+[; ;main.c: 169: RA2 = 1;
 "169
-[e = _RA2 -> -> 0 `i `b ]
+[e = _RA2 -> -> 1 `i `b ]
 [; ;main.c: 170: _delay((unsigned long)((100)*(4000000/4000.0)));
 "170
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 171: }
+[; ;main.c: 171: RA2 = 0;
 "171
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 172: _delay((unsigned long)((100)*(4000000/4000.0)));
+"172
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main.c: 173: }
+"173
 [e :UE 445 ]
 }
-"173
+"175
 [v _blink_LED_S `(v ~T0 @X0 1 ef ]
-"174
+"176
 {
-[; ;main.c: 173: void blink_LED_S(void)
-[; ;main.c: 174: {
+[; ;main.c: 175: void blink_LED_S(void)
+[; ;main.c: 176: {
 [e :U _blink_LED_S ]
 [f ]
-[; ;main.c: 175: RA2 = 1;
-"175
-[e = _RA2 -> -> 1 `i `b ]
-[; ;main.c: 176: _delay((unsigned long)((500)*(4000000/4000.0)));
-"176
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 177: RA2 = 0;
+[; ;main.c: 177: RA2 = 1;
 "177
-[e = _RA2 -> -> 0 `i `b ]
+[e = _RA2 -> -> 1 `i `b ]
 [; ;main.c: 178: _delay((unsigned long)((500)*(4000000/4000.0)));
 "178
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-[; ;main.c: 179: }
+[; ;main.c: 179: RA2 = 0;
 "179
+[e = _RA2 -> -> 0 `i `b ]
+[; ;main.c: 180: _delay((unsigned long)((500)*(4000000/4000.0)));
+"180
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main.c: 181: }
+"181
 [e :UE 446 ]
 }

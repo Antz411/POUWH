@@ -85,6 +85,8 @@ void initializers(void)
     /* TRIS BITS TO IO's ***/
 	//TRISA = 0x1F;                 // (MCLR/ICSP = Inputs) 0001 1111 - No Status LED
     TRISA = 0x1B;                   // (MCLR/ICSP = Inputs) 0001 1011 - Status LED
+    /* ANALOGUE SELECT */
+    ANSELA = 0x12;                  // RA1/RA4 = Analog [0001 0010]
 	/* PORTS */
 	PORTA = 0X00;                   // Clear all I/O's
     /* OSC SET UP */

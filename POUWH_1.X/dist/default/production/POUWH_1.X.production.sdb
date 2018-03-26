@@ -11,15 +11,15 @@
 [v _main main `(v  1 e 1 0 ]
 "83
 [v _initializers initializers `(v  1 e 1 0 ]
-"95
+"97
 [v _ADC_Init ADC_Init `(v  1 e 1 0 ]
-"106
+"108
 [v _ADC1_Read ADC1_Read `(ui  1 e 2 0 ]
-"144
+"146
 [v _Delay_Sec Delay_Sec `(v  1 e 1 0 ]
-"165
+"167
 [v _blink_LED_F blink_LED_F `(v  1 e 1 0 ]
-"173
+"175
 [v _blink_LED_S blink_LED_S `(v  1 e 1 0 ]
 "427 /opt/microchip/xc8/v1.43/include/pic12f1571.h
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
@@ -35,6 +35,8 @@
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
 "1572
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
+"2194
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "8147
 [v _GO_nDONE GO_nDONE `VEb  1 e 0 @1257 ]
 "8961
@@ -55,25 +57,25 @@
 "83
 [v _initializers initializers `(v  1 e 1 0 ]
 {
-"92
+"94
 } 0
-"173
+"175
 [v _blink_LED_S blink_LED_S `(v  1 e 1 0 ]
 {
-"179
+"181
 } 0
-"165
+"167
 [v _blink_LED_F blink_LED_F `(v  1 e 1 0 ]
 {
-"171
+"173
 } 0
-"95
+"97
 [v _ADC_Init ADC_Init `(v  1 e 1 0 ]
 {
-"103
+"105
 } 0
-"106
+"108
 [v _ADC1_Read ADC1_Read `(ui  1 e 2 0 ]
 {
-"122
+"124
 } 0
