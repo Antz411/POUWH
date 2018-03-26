@@ -33,7 +33,7 @@
 ******************************/
 void initializers(void);
 void ADC_Init(void);
-u16 ADC2_Read(void);
+u16 ADC1_Read(void);
 u16 ADC3_Read(void);
 void blink_LED_S(void);
 void blink_LED_F(void);
@@ -58,13 +58,13 @@ void main(void)
         
     while(1)
     {        
-        adc = ADC3_Read();                          // Read Analog Channel 3 [RA4]
+        //adc = ADC3_Read();                          // Read Analog Channel 3 [RA4]
+        adc = ADC1_Read();                          // Read Analog Channel 2 [RA2]
         /***********************************/
         /* To find a temperature threshold */
         /***********************************/
-        if(adc <= 100){//if(adc >= 0x3800){
-            //adc = ADC3_Read();                    // Read Analog Channel 3 [RA4]
-            //Heat_Up();                              // Heat the elements for 25 seconds
+        if(adc <= 255){//if(adc <= 0xFF){
+            //Heat_Up();                            // Heat the elements for 25 seconds
             blink_LED_F();                          // blink fast
         }
         else{
@@ -79,34 +79,52 @@ void main(void)
 /*****************************
          FUNCTIONS
 ******************************/
-
 /* Initialize */
 void initializers(void)
 {
-    /*** set corresponding tris bits to inputs and outputs ***/
-	TRISA = 0x03;               // (MCLR/ICSP = Inputs) 0000 0011
-	// Clear all Ports
-	PORTA = 0X00;
+    /* TRIS BITS TO IO's ***/
+	//TRISA = 0x1F;                 // (MCLR/ICSP = Inputs) 0001 1111 - No Status LED
+    TRISA = 0x1B;                   // (MCLR/ICSP = Inputs) 0001 1011 - Status LED
+	/* PORTS */
+	PORTA = 0X00;                   // Clear all I/O's
     /* OSC SET UP */
-    OSCCON = 0x6A;              // IRCF Bits for 4MHz (pg 42)
+    OSCCON = 0x6A;                  // IRCF Bits for 4MHz (pg 42)
 }
 
 /* Initialize the ADC */
 void ADC_Init(void)
 {
-    /* Using ADC Channel 2 &  */
-    ADCON0 = 0x81;               // Turn ON ADC (unnecessary? - enabled at each read)
-    /* Vrpos = Vdd
-     * Fosc/2
+    /* Using ADC Channel 1 &  */
+    //ADCON0 = 0x81;             // Channel specifically enabled at each read?
+    
+    /* Vrpos = Vdd + Fosc/2
      * Right Justified (6 MSB = 0) - Read as [xxxx xx11 1111 1111 ]*/
     ADCON1 = 0x80;               // Reference Voltages, frequency & bit justification
 }
 
-/* Read the Temperature Control value [RA4] */
+/* Read the Temperature Sensor value  [RA1 - AN1] */
+u16 ADC1_Read(void)
+{
+    ADCON0 = 0x05;               // 0000 0101   -> ADC Enable + AN1 select
+    __delay_ms(2);               // Acquisition time to charge hold capacitor
+    
+    GO_nDONE = 1;                // Initializes A/D conversion
+    while(GO_nDONE);             // Waiting for conversion to complete
+    //return ((ADCH<<8)+ADRESL);
+    
+    /* Right Justified */
+    ADCH = ADRESH;
+    ADCL = ADRESL;
+    ADCH = ADRESH && 0x03;          // AND 0000 0011
+    ADCH = (ADCH<<8);               // shift to top 8 bits
+    ADCH = ADCH + ADCL;             // Add results
+    return ADCH;                    // Return result
+}
+
+/* Read the Temperature Control value [RA4 - AN3] */
 u16 ADC3_Read(void)
 {
     ADCON0 = 0x0B;               // 0000 1101   -> ADC Enable + AN3 select
-    
     __delay_ms(2);               // Acquisition time to charge hold capacitor
     
     GO_nDONE = 1;                // Initializes A/D conversion
@@ -120,18 +138,6 @@ u16 ADC3_Read(void)
     ADCH = (ADCH<<8);               // shift to top 8 bits
     ADCH = ADCH + ADCL;             // Add results
     return ADCH;                    // Return result
-}
-
-/* Read the Temperature Sensor value [RA2] */
-u16 ADC2_Read(void)
-{
-    ADCON0 = 0x09;               // 0000 1001   -> ADC Enable + AN2 select
-    
-    __delay_ms(2);               // Acquisition time to charge hold capacitor
-    
-    GO_nDONE = 1;                // Initializes A/D conversion
-    while(GO_nDONE);             // Waiting for conversion to complete
-    return ((ADCH<<8)+ADRESL);
 }
 
 /* Delay for X seconds */
